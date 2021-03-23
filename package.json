@@ -1,0 +1,16 @@
+{
+  "name": "bank-ocr-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./jasmineTest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.7.0",
+    "nyc": "^15.1.0",
+    "jasmine-reporters": "^2.3.1"
+  }
+}
