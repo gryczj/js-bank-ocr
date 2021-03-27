@@ -82,17 +82,12 @@ describe("UserStory 1 Unit Tests / ", () => {
         }
     ];
 
-
     testCases.forEach((test, index) => {
 
         it(`should parse acount number ${test.input}`, () => {
-            const result = reader.parse(test.input);
+            const result = reader.parse(test.input, false);
             expect(result).toBe(test.output);
         })
 
     })
-
-
-
-
 });

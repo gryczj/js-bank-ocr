@@ -1,3 +1,5 @@
+const { validate } = require("./validator");
+
 const numbersRepresentation = [
   [
     [" _ "],
@@ -54,21 +56,8 @@ const numbersRepresentation = [
 const ROW_LENGTH = 27;
 const NUMBER_LENGTH = 3;
 const NUMBER_OF_ROW = 3;
-const MATRIX_SIZE = 3;
 const ACOUNT_NUMBER_LENGTH = 9;
-
-// function initializeMatrix(matrixSize, defaultValue) {
-//   const matrix = [];
-//   for (let row = 0; row < matrixSize; row++) {
-//     matrix.push([]);
-//     let line = "";
-//     for (let col = 0; col < matrixSize; col++) {
-//       line += defaultValue;
-//     }
-//     matrix[row] = line;
-//   }
-//   return matrix;
-// }
+const WRONG_ACCOUNT_NUMBER_MESSAGE = "ILL";
 
 function initializeArray(arrayLength) {
   const matrix = [];
@@ -118,7 +107,12 @@ function compareNumbersRepresentations(number1, number2) {
 }
 
 function findActualNumber(numberRepresentation) {
-  return numbersRepresentation.findIndex(el => compareNumbersRepresentations(numberRepresentation, el));
+  const index = numbersRepresentation.findIndex(el => compareNumbersRepresentations(numberRepresentation, el));
+  return index === -1 ? "?" : index;
+}
+
+function addAccountNumberStatus(accountNumber, considerStatus) {
+  return (accountNumber.includes("?") || !validate(accountNumber)) && considerStatus ? accountNumber + " " + WRONG_ACCOUNT_NUMBER_MESSAGE : accountNumber;
 }
 
 function findActualAccountNumbers(array) {
@@ -127,13 +121,15 @@ function findActualAccountNumbers(array) {
   return actualAccountNumbers;
 }
 
-function parse(input) {
+function parse(input, considerStatus) {
   const inputInOneLine = input.split("").filter(sign => sign !== "\n").join("");
   const lines = splitInput(inputInOneLine, NUMBER_OF_ROW, ROW_LENGTH);
   const array = initializeArray(ACOUNT_NUMBER_LENGTH);
   createNumbersRepresentation(array, lines, NUMBER_OF_ROW, NUMBER_LENGTH, ROW_LENGTH);
   printArray(array, ACOUNT_NUMBER_LENGTH, NUMBER_LENGTH);
-  return findActualAccountNumbers(array);
+  const actualAccountNumbers = findActualAccountNumbers(array);
+  const finalAccountNumber = addAccountNumberStatus(actualAccountNumbers, considerStatus);
+  return finalAccountNumber;
 }
 
 module.exports = {

@@ -19,24 +19,19 @@ describe("UserStory 3 Unit Tests / ", () => {
         },
         {
             input: `
-  _  _     _  _  _  _  _ 
-| _| _||_| _ |_   ||_||_|
-||_  _|  | _||_|  ||_| _ `,
+    _  _     _  _  _  _  _ 
+  | _| _||_| _ |_   ||_||_|
+  ||_  _|  | _||_|  ||_| _ `,
             output: "1234?678? ILL"
         }
     ];
 
-
     testCases.forEach((test, index) => {
 
-        it(`should parse acount number ${test.input}`, () => {            
-            const result = reader.parse(test.input);
+        it(`should parse acount number ${test.input}`, () => {
+            const result = reader.parse(test.input, true);
             expect(result).toBe(test.output);
         })
 
     })
-
-
-
-
 });
