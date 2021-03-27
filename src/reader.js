@@ -58,6 +58,7 @@ const NUMBER_LENGTH = 3;
 const NUMBER_OF_ROW = 3;
 const ACOUNT_NUMBER_LENGTH = 9;
 const WRONG_ACCOUNT_NUMBER_MESSAGE = "ILL";
+const WRONG_SUM_MESSAGE = "ERR";
 
 function initializeArray(arrayLength) {
   const matrix = [];
@@ -112,7 +113,16 @@ function findActualNumber(numberRepresentation) {
 }
 
 function addAccountNumberStatus(accountNumber, considerStatus) {
-  return (accountNumber.includes("?") || !validate(accountNumber)) && considerStatus ? accountNumber + " " + WRONG_ACCOUNT_NUMBER_MESSAGE : accountNumber;
+  if (!considerStatus) {
+    return accountNumber;
+  }
+  if (accountNumber.includes("?")) {
+    return accountNumber + " " + WRONG_ACCOUNT_NUMBER_MESSAGE;
+  }
+  if (!validate(accountNumber)) {
+    return accountNumber + " " + WRONG_SUM_MESSAGE;
+  }
+  return accountNumber;
 }
 
 function findActualAccountNumbers(array) {
