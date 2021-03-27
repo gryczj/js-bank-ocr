@@ -25,67 +25,67 @@ describe("UserStory 1 Unit Tests / ", () => {
             output: "222222222"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
  _| _| _| _| _| _| _| _| _|
  _| _| _| _| _| _| _| _| _|`,
-            output:"333333333"
+            output: "333333333"
         },
         {
-            input:`
+            input: `
                            
 |_||_||_||_||_||_||_||_||_|
   |  |  |  |  |  |  |  |  |`,
-            output:"444444444"
+            output: "444444444"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
 |_ |_ |_ |_ |_ |_ |_ |_ |_ 
  _| _| _| _| _| _| _| _| _|`,
-            output:"555555555"
+            output: "555555555"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
 |_ |_ |_ |_ |_ |_ |_ |_ |_ 
 |_||_||_||_||_||_||_||_||_|`,
-            output:"666666666"
+            output: "666666666"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
   |  |  |  |  |  |  |  |  |
   |  |  |  |  |  |  |  |  |`,
-            output:"777777777"
+            output: "777777777"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
 |_||_||_||_||_||_||_||_||_|
 |_||_||_||_||_||_||_||_||_|`,
-            output:"888888888"
+            output: "888888888"
         },
         {
-            input:`
+            input: `
  _  _  _  _  _  _  _  _  _ 
 |_||_||_||_||_||_||_||_||_|
  _| _| _| _| _| _| _| _| _|`,
-            output:"999999999"
-        }, 
+            output: "999999999"
+        },
         {
-            input:`
+            input: `
     _  _     _  _  _  _  _ 
   | _| _||_||_ |_   ||_||_|
   ||_  _|  | _||_|  ||_| _|`,
-            output:"123456789"
-        } 
+            output: "123456789"
+        }
     ];
 
 
     testCases.forEach((test, index) => {
 
-        it(`should parse acount number ${test.input}`, () => {            
+        it(`should parse acount number ${test.input}`, () => {
             const result = reader.parse(test.input);
             expect(result).toBe(test.output);
         })
