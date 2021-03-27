@@ -23,7 +23,14 @@ describe("UserStory 3 Unit Tests / ", () => {
   | _| _||_| _ |_   ||_||_|
   ||_  _|  | _||_|  ||_| _ `,
             output: "1234?678? ILL"
-        }
+        },
+        {
+            input: `
+ _  _     _  _        _  _ 
+|_ |_ |_| _|  |  ||_||_||_ 
+|_||_|  | _|  |  |  | _| _|`,
+            output: "664371495 ERR"
+        },
     ];
 
     testCases.forEach((test, index) => {
