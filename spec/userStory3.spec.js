@@ -36,7 +36,7 @@ describe("UserStory 3 Unit Tests / ", () => {
     testCases.forEach((test, index) => {
 
         it(`should parse acount number ${test.input}`, () => {
-            const result = reader.parse(test.input, true);
+            const result = reader.parse(test.input, true, false);
             expect(result).toBe(test.output);
         })
 

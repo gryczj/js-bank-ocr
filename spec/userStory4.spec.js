@@ -1,6 +1,6 @@
 const reader = require("../src/reader");
 
-xdescribe("UserStory 4 Unit Tests / ", () => {
+describe("UserStory 4 Unit Tests / ", () => {
 
     const testCases = [
         {
@@ -91,7 +91,7 @@ xdescribe("UserStory 4 Unit Tests / ", () => {
     testCases.forEach((test, index) => {
 
         it(`should parse acount number ${test.input}`, () => {
-            const result = reader.parse(test.input);
+            const result = reader.parse(test.input, false, true);
             expect(result).toBe(test.output);
         })
 
